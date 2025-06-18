@@ -536,65 +536,34 @@ h2.section-title { font-size: 1.7rem; font-weight: 600; text-align: center; marg
     }
 }
 /* ==========================================================================
-   13. NOW PLAYING SPOTIFY (DESAIN BARU MINIMALIS)
+   14. RESPONSIVE FIX UNTUK NOW PLAYING
    ========================================================================== */
-.now-playing-container {
-    display: flex;
-    justify-content: space-between; /* Mendorong logo Spotify ke kanan */
-    align-items: center;
-    padding: 0.75rem 1rem;
-    gap: 1rem;
-    transition: background-color 0.3s ease;
-}
+@media (max-width: 768px) {
+    /* Aturan ini hanya berlaku untuk layar dengan lebar 768px atau kurang */
 
-.now-playing-container:hover {
-    background: rgba(45, 55, 72, 0.7); /* Sedikit lebih terang saat kursor di atasnya */
-}
+    .now-playing-container .player-ui {
+        /* Mengurangi jarak antara gambar dan teks */
+        gap: 0.75rem; 
+    }
 
-/* Ini adalah link yang membungkus gambar dan teks */
-.now-playing-container .player-ui {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Jarak antara gambar dan teks */
-    text-decoration: none;
-    flex-grow: 1; /* Mengambil sisa ruang yang tersedia */
-    min-width: 0; /* Trik agar teks bisa mengecil dengan benar */
-}
+    #now-playing-album-art {
+        /* Mengecilkan ukuran gambar thumbnail */
+        width: 50px;
+        height: 50px;
+    }
 
-#now-playing-album-art {
-    width: 50px;
-    height: 50px;
-    border-radius: 6px;
-    object-fit: cover;
-    flex-shrink: 0; /* Mencegah gambar menyusut */
-}
+    .now-playing-container #now-playing-title {
+        /* Mengecilkan ukuran font judul */
+        font-size: 0.9rem;
+    }
 
-.now-playing-container .player-body {
-    min-width: 0;
-}
+    .now-playing-container #now-playing-artist {
+        /* Mengecilkan ukuran font artis */
+        font-size: 0.8rem;
+    }
 
-.now-playing-container #now-playing-title,
-.now-playing-container #now-playing-artist {
-    /* Bagian ini mencegah teks menjadi terlalu panjang dan merusak layout */
-    white-space: nowrap;      /* Mencegah teks turun ke baris baru */
-    overflow: hidden;         /* Sembunyikan teks yang meluap */
-    text-overflow: ellipsis;  /* Tampilkan "..." di akhir teks yang panjang */
-}
-
-.now-playing-container #now-playing-title {
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 1rem;
-    margin: 0;
-}
-
-.now-playing-container #now-playing-artist {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    margin: 0;
-}
-
-.now-playing-container .spotify-logo {
-    font-size: 1.8rem;
-    color: #1DB954; /* Warna hijau Spotify */
+    .now-playing-container .spotify-logo {
+        /* Mengecilkan ikon Spotify */
+        font-size: 1.5rem;
+    }
 }
