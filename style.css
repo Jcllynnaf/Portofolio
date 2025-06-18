@@ -536,51 +536,65 @@ h2.section-title { font-size: 1.7rem; font-weight: 600; text-align: center; marg
     }
 }
 /* ==========================================================================
-   14. RESPONSIVE FIX V2 UNTUK NOW PLAYING (LEBIH KUAT)
+   13. NOW PLAYING SPOTIFY (DESAIN BARU MINIMALIS)
    ========================================================================== */
-@media (max-width: 768px) {
-    /* Aturan ini hanya berlaku untuk layar dengan lebar 768px atau kurang */
+.now-playing-container {
+    display: flex;
+    justify-content: space-between; /* Mendorong logo Spotify ke kanan */
+    align-items: center;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+    transition: background-color 0.3s ease;
+}
 
-    section#now-playing-section.now-playing-container {
-        /* Mengurangi padding di perangkat mobile agar tidak terlalu makan tempat */
-        padding: 0.75rem;
-    }
+.now-playing-container:hover {
+    background: rgba(45, 55, 72, 0.7); /* Sedikit lebih terang saat kursor di atasnya */
+}
 
-    /* Menggunakan selector yang lebih spesifik untuk memastikan style ini menang */
-    section#now-playing-section .player-ui {
-        gap: 0.75rem; 
-    }
+/* Ini adalah link yang membungkus gambar dan teks */
+.now-playing-container .player-ui {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Jarak antara gambar dan teks */
+    text-decoration: none;
+    flex-grow: 1; /* Mengambil sisa ruang yang tersedia */
+    min-width: 0; /* Trik agar teks bisa mengecil dengan benar */
+}
 
-    section#now-playing-section #now-playing-album-art {
-        /* Menggunakan !important untuk memaksa ukuran ini diterapkan */
-        width: 50px !important;
-        height: 50px !important;
-        flex-shrink: 0; /* Mencegah gambar 'gepeng' saat ruang sempit */
-    }
-    
-    /* Mengontrol bagian teks agar fleksibel */
-    section#now-playing-section .player-body {
-        min-width: 0; /* Trik agar flexbox bisa mengecil dengan benar */
-        flex-grow: 1;
-    }
+#now-playing-album-art {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0; /* Mencegah gambar menyusut */
+}
 
-    section#now-playing-section #now-playing-title,
-    section#now-playing-section #now-playing-artist {
-        /* Memaksa teks untuk pindah ke baris baru jika terlalu panjang */
-        white-space: normal;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    section#now-playing-section #now-playing-title {
-        font-size: 0.9rem;
-    }
+.now-playing-container .player-body {
+    min-width: 0;
+}
 
-    section#now-playing-section #now-playing-artist {
-        font-size: 0.8rem;
-    }
+.now-playing-container #now-playing-title,
+.now-playing-container #now-playing-artist {
+    /* Bagian ini mencegah teks menjadi terlalu panjang dan merusak layout */
+    white-space: nowrap;      /* Mencegah teks turun ke baris baru */
+    overflow: hidden;         /* Sembunyikan teks yang meluap */
+    text-overflow: ellipsis;  /* Tampilkan "..." di akhir teks yang panjang */
+}
 
-    section#now-playing-section .spotify-logo {
-        font-size: 1.5rem;
-    }
+.now-playing-container #now-playing-title {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.now-playing-container #now-playing-artist {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.now-playing-container .spotify-logo {
+    font-size: 1.8rem;
+    color: #1DB954; /* Warna hijau Spotify */
 }
