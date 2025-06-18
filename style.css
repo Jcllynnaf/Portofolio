@@ -536,34 +536,51 @@ h2.section-title { font-size: 1.7rem; font-weight: 600; text-align: center; marg
     }
 }
 /* ==========================================================================
-   14. RESPONSIVE FIX UNTUK NOW PLAYING
+   14. RESPONSIVE FIX V2 UNTUK NOW PLAYING (LEBIH KUAT)
    ========================================================================== */
 @media (max-width: 768px) {
     /* Aturan ini hanya berlaku untuk layar dengan lebar 768px atau kurang */
 
-    .now-playing-container .player-ui {
-        /* Mengurangi jarak antara gambar dan teks */
+    section#now-playing-section.now-playing-container {
+        /* Mengurangi padding di perangkat mobile agar tidak terlalu makan tempat */
+        padding: 0.75rem;
+    }
+
+    /* Menggunakan selector yang lebih spesifik untuk memastikan style ini menang */
+    section#now-playing-section .player-ui {
         gap: 0.75rem; 
     }
 
-    #now-playing-album-art {
-        /* Mengecilkan ukuran gambar thumbnail */
-        width: 50px;
-        height: 50px;
+    section#now-playing-section #now-playing-album-art {
+        /* Menggunakan !important untuk memaksa ukuran ini diterapkan */
+        width: 50px !important;
+        height: 50px !important;
+        flex-shrink: 0; /* Mencegah gambar 'gepeng' saat ruang sempit */
+    }
+    
+    /* Mengontrol bagian teks agar fleksibel */
+    section#now-playing-section .player-body {
+        min-width: 0; /* Trik agar flexbox bisa mengecil dengan benar */
+        flex-grow: 1;
     }
 
-    .now-playing-container #now-playing-title {
-        /* Mengecilkan ukuran font judul */
+    section#now-playing-section #now-playing-title,
+    section#now-playing-section #now-playing-artist {
+        /* Memaksa teks untuk pindah ke baris baru jika terlalu panjang */
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    section#now-playing-section #now-playing-title {
         font-size: 0.9rem;
     }
 
-    .now-playing-container #now-playing-artist {
-        /* Mengecilkan ukuran font artis */
+    section#now-playing-section #now-playing-artist {
         font-size: 0.8rem;
     }
 
-    .now-playing-container .spotify-logo {
-        /* Mengecilkan ikon Spotify */
+    section#now-playing-section .spotify-logo {
         font-size: 1.5rem;
     }
 }
