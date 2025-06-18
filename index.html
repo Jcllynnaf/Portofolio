@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional | ANDIKA</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="site-logo">
+                <a href="#">ANDIKA</a>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#experience">Pengalaman</a></li>
+                    <li><a href="#projects">Projek</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Buka navigasi">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <div id="intro-overlay">
+        <div id="intro-terminal">
+            <pre id="ascii-art" class="hidden"></pre>
+            <div id="intro-lines"></div>
+        </div>
+    </div>
+
+    <main class="container hidden">
+        <header class="profile-card glass-effect reveal">
+            <img src="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/profile.jpeg" alt="Foto Profil" class="profile-picture">
+            <h1 class="profile-name">ANDIKA</h1>
+            <p class="profile-bio">Full Stuck Developer</p>
+            <p class="profile-bio">Ethical Hacking Enthusiast</p>
+            <p class="profile-bio">Builder of Tools</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/jcllynnaf/" target="_blank" aria-label="Instagram" data-tooltip="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/+6282172115963" target="_blank" aria-label="WhatsApp" data-tooltip="WhatsApp" class="social-link"><i class="fab fa-whatsapp-square"></i></a>
+                <a href="https://github.com/jcllynnaf/" target="_blank" aria-label="GitHub" data-tooltip="GitHub" class="social-link"><i class="fab fa-github"></i></a>
+            </div>
+        </header>
+
+        <section class="music-player-container glass-effect reveal">
+    <audio id="audio-source"></audio>
+
+    <div class="player-ui">
+        <div class="album-art-container">
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Bohemian_Rhapsody.png" alt="Album Art" id="album-art">
+        </div>
+        <div class="player-body">
+            <div class="song-info">
+                <div>
+                    <h3 id="song-title">Bohemian Rhapsody</h3>
+                    <p id="song-artist">Queen</p>
+                </div>
+                <div class="player-icons">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <button id="playlist-toggle-btn" aria-label="Buka daftar putar">
+                        <i class="fa-solid fa-list-ul"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="time-stamps">
+                    <span id="current-time">0:00</span>
+                    <span id="total-time">0:00</span>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button id="prev-btn" aria-label="Lagu sebelumnya"><i class="fas fa-backward-step"></i></button>
+                <button id="play-pause-btn" aria-label="Putar"><i class="fas fa-play"></i></button>
+                <button id="next-btn" aria-label="Lagu selanjutnya"><i class="fas fa-forward-step"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="playlist" id="playlist">
+        <h4>Daftar Putar</h4>
+        <ul id="playlist-ul">
+            </ul>
+    </div>
+</section>
+
+        <section id="experience" class="content-section reveal">
+            <h2 class="section-title">Pengalaman Kerja</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2019 - 2021</div>
+                    <div class="timeline-content glass-effect">
+                        <h3>CPA Marketing</h3>
+                        <h4><i class="fas fa-house"></i> Work From Home</h4>
+                        <p>Saya bekerja di bidang CPA marketing sebagai publisher, fokus pada promosi dan monetisasi melalui berbagai strategi digital.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021 - 2022</div>
+                    <div class="timeline-content glass-effect">
+                        <h3>SA:MP Developer</h3>
+                        <h4><i class="fas fa-house"></i> Work From Home</h4>
+                        <p>Saya bekerja sebagai SA:MP Developer, fokus mengembangkan server dan script untuk game GTA San Andreas Multiplayer.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024 - Current</div>
+                    <div class="timeline-content glass-effect">
+                        <h3>Freelancer</h3>
+                        <h4><i class="fas fa-building"></i> Work From Home</h4>
+                        <p>Freelancer malam hari, jualan produk digital, dan berbagai jasa online lainnya, fokus cari celah keamanan (bug bounty) dan ngerjain project digital. Aktif di dunia ethical hacking & pengembangan sistem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="content-section reveal">
+            <h2 class="section-title">Layanan</h2>
+            <div class="services-grid">
+                <div class="service-card glass-effect">
+                    <img src="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/DIGITAL.jpg" alt="Thumbnail Desain UI/UX" class="service-thumbnail">
+                    <div class="service-content">
+                        <h3>PANEL CLOUD DIGITALOCEAN</h3>
+                        <p>Mau bikin proyek digital jadi cepat kelar? Pakai aja Panel Cloud dari DigitalOcean! Gampang dipakai, fitur lengkap, dan cocok banget buat developer, freelancer, startup, atau bisnis yang butuh cloud cepat, aman, dan fleksibel all-in-one dalam satu dashboard.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="content-section reveal">
+            <h2 class="section-title">Product</h2>
+            <div class="item-grid">
+                <div class="item-card glass-effect"
+                     data-title="Linux All-in-One For Dummies (PDF)"
+                     data-price="Rp 64.000"
+                     data-image="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/product1.png"
+                     data-description="Pelajari Linux secara menyeluruh lewat 8 mini buku dalam satu volume! Dengan lebih dari 800 halaman, panduan ini mencakup semua yang perlu Anda ketahui, mulai dari dasar-dasar command line, administrasi sistem, hingga keamanan jaringan. Sangat cocok untuk pemula yang ingin menjadi mahir atau bagi Anda yang ingin memperdalam pengetahuan tentang ekosistem Linux."
+                     data-wa-link="https://wa.me/+6282172115963?text=Halo,%20saya%20tertarik%20untuk%20membeli%20produk%20'Linux%20All-in-One%20For%20Dummies%20(PDF)'.">
+                    <img src="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/product1.png" alt="Linux All-in-One" class="item-thumbnail">
+                    <div class="item-content">
+                        <h3>Linux All-in-One For Dummies (PDF)</h3>
+                        <p>Pelajari Linux secara menyeluruh lewat 8 mini buku dalam satu volume! Dengan lebih dari 800 halaman.</p>
+                        <div class="product-price">Rp 64.000</div>
+                        <div class="item-links"><a href="#" class="item-btn product-detail-btn">Info Detail</a></div>
+                    </div>
+                </div>
+                <div class="item-card glass-effect"
+                     data-title="PANEL CLOUD DIGITALOCEAN"
+                     data-price="Rp 151.800"
+                     data-image="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/OCEAN.jpg"
+                     data-description="Bangun proyek digital Anda dengan cepat menggunakan Panel Cloud DigitalOcean, platform cloud terdepan yang mudah digunakan dan kaya fitur. Platform ini menyediakan solusi all-in-one dalam satu dasbor yang intuitif, cocok untuk developer, freelancer, startup, atau bisnis yang memerlukan infrastruktur cloud yang cepat, aman, dan fleksibel."
+                     data-wa-link="https://wa.me/+6282172115963?text=Halo,%20saya%20tertarik%20untuk%20membeli%20produk%20'PANEL%20CLOUD%20DIGITALOCEAN'.">
+                    <img src="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/OCEAN.jpg" alt="Thumbnail Produk Template Website" class="item-thumbnail">
+                    <div class="item-content">
+                        <h3>PANEL CLOUD DIGITALOCEAN</h3>
+                        <p>Bangun proyek digital Anda dengan cepat menggunakan Panel Cloud DigitalOcean, platform cloud terdepan yang mudah digunakan dan kaya fitur.</p>
+                        <div class="product-price">Rp 151.800</div>
+                        <div class="item-links"><a href="#" class="item-btn product-detail-btn">Info Detail</a></div>
+                    </div>
+                </div>
+                <div class="item-card glass-effect"
+                     data-title="VPS INDO BIZNET"
+                     data-price="Rp 85.000 - 150.000"
+                     data-image="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/VPS.png"
+                     data-description="Butuh VPS lokal yang ngebut dan tahan banting? VPS INDO BIZNET by PT. Biznet Gio jawabannya! Cocok buat hosting web, bot, game server, atau kebutuhan lainnya. Benefit-nya? VPS awet, anti suspend, dan langsung siap pakai. Gak pake ribet, langsung gas!"
+                     data-wa-link="https://wa.me/+6282172115963?text=Halo,%20saya%20tertarik%20untuk%20bertanya%20mengenai%20'VPS%20INDO%20BIZNET'.">
+                    <img src="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/VPS.png" alt="Thumbnail Produk Template Website" class="item-thumbnail">
+                    <div class="item-content">
+                        <h3>VPS INDO BIZNET</h3>
+                        <p>Butuh VPS lokal yang ngebut dan tahan banting? VPS INDO BIZNET by PT. Biznet Gio jawabannya! Cocok buat hosting web, bot, game server, atau kebutuhan lainnya.</p>
+                        <div class="product-price">Rp 85.000 - 150.000</div>
+                        <div class="item-links"><a href="#" class="item-btn product-detail-btn">Info Detail</a></div>
+                    </div>
+                </div>
+                <div class="item-card glass-effect osint-card"
+                     data-title="VIP OSINT V2.14"
+                     data-price="Rp 287.000"
+                     data-images='["https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/OSINT.jpg", "https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/HeRecon.png", "https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/HerOSINT.png"]'
+                     data-description="VIP OSINT V2.14 adalah script Python serbaguna untuk berbagai tugas Open Source Intelligence (OSINT). Berikut adalah fitur-fiturnya:<ul><li><strong>[1] DOXING (Cari Database Teks):</strong> Mencari kata kunci dalam file teks yang disimpan di folder database.</li><li><strong>[2] TRACK IP:</strong> Melacak informasi detail mengenai suatu alamat IP menggunakan API ipinfo.io.</li><li><strong>[3] INSTAGRAM OSINT:</strong> Mengambil informasi publik dari profil Instagram (memerlukan instaloader).</li><li><strong>[4] CARI TEKS GAMBAR (OCR):</strong> Mencari kata kunci di dalam file gambar (PNG, JPG, TIFF, dll.) menggunakan Tesseract OCR (memerlukan instalasi Tesseract terpisah).</li><li><strong>[5] KONFIGURASI:</strong> Mengubah batas jumlah hasil yang ditampilkan untuk fitur Doxing [1].</li></ul>"
+                     data-wa-link="https://wa.me/+6282172115963?text=Halo,%20saya%20tertarik%20untuk%20membeli%20produk%20'VIP%20OSINT%20V2.14'.">
+                    <img src="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/OSINT.jpg" alt="Thumbnail Produk Template Website" class="item-thumbnail">
+                    <div class="item-content">
+                        <h3>VIP OSINT V2.14</h3>
+                        <p>Script Python serbaguna untuk berbagai tugas Open Source Intelligence (OSINT), mulai dari Doxing, IP Tracking, hingga OCR.</p>
+                        <div class="product-price">Rp 287.000</div>
+                        <div class="item-links"><a href="#" class="item-btn product-detail-btn">Info Detail</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section reveal">
+            <h2 class="section-title">Project</h2>
+            <div class="item-grid">
+                <div class="item-card glass-effect">
+                    <img src="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/HeRecon.png" alt="Thumbnail Projek Dasbor Analitik" class="item-thumbnail">
+                    <div class="item-content">
+                        <h3>HeRecon</h3>
+                        <p>HeRecon adalah alat OSINT ( Open-Source Intelligence) yang dirancang untuk analisis pengintaian dan keamanan domain.</p>
+                        <div class="tech-tags"><span>Python</span><span>Linux</span><span>Windows</span></div>
+                        <div class="item-links">
+                            <a href="https://github.com/Jcllynnaf/HeRecon" class="item-btn secondary"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-card glass-effect">
+                    <img src="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/WiFi.png" alt="Thumbnail Projek Dasbor Analitik" class="item-thumbnail">
+                    <div class="item-content">
+                        <h3>WIFI-Attack</h3>
+                        <p>Alat Keamanan Cyber Untuk Meretas Koneksi Nirkabel Menggunakan Built-In Kali Tools. Mendukung Semua Sekuritas (WEP, WPS, WPA, WPA2/TKIP/IES)</p>
+                        <div class="tech-tags"><span>Python 3.5</span><span>Python 2.7</span><span>Linux</span></div>
+                        <div class="item-links">
+                            <a href="https://github.com/Jcllynnaf/WIFI-Attack" class="item-btn secondary"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-card glass-effect">
+                    <img src="https://raw.githubusercontent.com/Jcllynnaf/Jcllynnaf/refs/heads/main/assets/HerOSINT.png" alt="Thumbnail Projek Landing Page" class="item-thumbnail">
+                    <div class="item-content">
+                        <h3>HerOSINT - OSINT IP Scanner</h3>
+                        <p>HerOSINT adalah alat OSINT (Open Source Intelligence) berdasarkan python yang dirancang untuk penyelidikan, analisis IP, pengintaian dan pengumpulan informasi target.</p>
+                        <div class="tech-tags"><span>Python</span><span>Linux</span></div>
+                        <a href="https://github.com/Jcllynnaf/HerOSINT" class="item-btn secondary"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="content-section reveal">
+            <h2 class="section-title">Apa Kata Mereka</h2>
+            <div class="swiper testimonials-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card glass-effect">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">Kerja samanya sih mantap jiwa! Proyek kelar lebih cepet dari mantan move on, kualitasnya sampe bikin ekspektasi minder. Komunikasinya juga aktif banget, kayak chat gebetan yang balesnya nggak pake delay!</p>
+                            <div class="testimonial-author"><img src="https://ik.imagekit.io/no10o2we8/474244282_394224327081748_8260453846036339219_n.jpg?updatedAt=1749969115675" alt="Foto Klien 1"><div class="author-info"><h4>Moehammed Abian</h4><span>Users, DigitalOcean</span></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card glass-effect">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">kerenn dikaaa lanjutin bakatmuu, i support u, semangat teruss</p>
+                            <div class="testimonial-author"><img src="https://i.pinimg.com/736x/25/1c/e1/251ce139d8c07cbcc9daeca832851719.jpg" alt="Foto Klien 2"><div class="author-info"><h4>Anonymous</h4><span>Users</span></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card glass-effect">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">mantapp bro, ini orang serbabisa kalo soal teknologi</p>
+                            <div class="testimonial-author"><img src="https://i.pinimg.com/736x/25/1c/e1/251ce139d8c07cbcc9daeca832851719.jpg" alt="Foto Klien 3"><div class="author-info"><h4>Anonymous</h4><span>Users</span></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card glass-effect">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">tools osint sama wifi attack nya work</p>
+                            <div class="testimonial-author"><img src="https://i.pinimg.com/736x/25/1c/e1/251ce139d8c07cbcc9daeca832851719.jpg" alt="Foto Klien 3"><div class="author-info"><h4>Anonymous</h4><span>Users</span></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <footer id="contact" class="glass-effect reveal">
+            <h2>Mari Terhubung</h2>
+            <p>Punya ide atau proyek menarik? Saya siap mendengarkan.</p>
+            <a href="mailto:andikafbrynsyh28@gmail.com" class="contact-button">Kirim Email</a>
+        </footer>
+    </main>
+
+    <div id="sales-notification" class="hidden"></div>
+    
+    <div id="product-modal-overlay" class="modal-overlay">
+        <div id="product-modal-container" class="modal-container glass-effect">
+            <button id="close-modal-btn" class="close-modal-btn">&times;</button>
+            <div class="modal-content-wrapper">
+                <div id="modal-image-container" class="modal-image-container">
+                    </div>
+                <div class="modal-details">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-price" class="modal-price"></p>
+                    <div id="modal-description" class="modal-description"></div>
+                    <a href="#" id="modal-buy-btn" class="item-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Beli via WhatsApp</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- LOGIKA INTRO ANIMASI ---
+        const introOverlay = document.getElementById('intro-overlay');
+        const mainContent = document.querySelector('main');
+        if (introOverlay && mainContent) {
+            const introLinesContainer = document.getElementById('intro-lines');
+            const asciiArtEl = document.getElementById('ascii-art');
+            const asciiArt = `
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡠⠤⠤⠤⠤⠤⠤⠄⣀⣀⠀⠀⠀⢀⡠⠴⠒⢩⣷⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⢯⠉⠙⠢⣄⠀⢀⡤⠒⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠑⠚⠁⠀⠀⠀⢸⠋⣷⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢰⡏⠾⡆⠀⠀⠀⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⡼⡇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢸⡃⠔⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡆⠐⣿⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢺⠄⠰⣿⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⢱⡀⠀⠀⠀⠀⢀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠘⠳⡄⢻⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢹⡆⣴⡿⠀⠀⠀⠀⣆⠀⠀⠀⠱⡀⠀⢳⡀⠀⠀⠀⠀⠑⢦⡀⠀⠀⠑⣄⠀⠀⠀⡀⠀⠹⣾⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷⠃⢁⠀⠀⠀⠀⣏⣦⡤⠤⢄⡱⡀⠀⢷⡀⠀⠀⠀⠀⢀⠽⣷⡖⠒⠺⣦⡀⠀⠹⡄⠀⣿⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⡇⠀⢸⠀⠀⠀⢾⠃⠀⠑⢤⡀⠀⠙⢦⡈⢿⣄⡀⠀⠀⠀⠀⠈⢻⣦⡀⠘⡄⠀⠀⠀⢱⡀⢸⡄⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣰⠁⠀⢹⠀⠀⠀⢸⢀⣠⣴⣦⣿⣷⣦⣈⣻⣶⣟⣳⣦⣀⣠⣶⣿⠿⠿⣷⣤⣳⠀⠀⠀⢇⠀⡇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⡀⠀⢼⠀⠀⠘⣇⠀⠀⣾⡿⠋⠁⣰⣿⠿⡍⠀⠀⠀⠀⠉⠉⠉⢡⣿⣿⠻⡄⠈⢿⣿⡇⠀⠀⢸⠀⡗⠀⠀⠀⠀
+⠀⢰⡛⠲⣄⡏⠙⢆⢸⠀⠀⠀⠘⣆⠀⢹⣧⠀⠰⣿⢿⣦⣿⠀⠀⠀⠀⠀⠀⠀⢸⡟⠻⣿⡇⠀⠸⣿⣧⠀⠀⢸⠀⡜⠀⠀⠀⠀
+⢀⣟⠛⠀⢠⠀⠀⢈⣾⣇⠀⡀⠀⢻⣧⣼⡁⠀⠀⠻⣼⣽⠏⠀⠀⠀⠀⠀⠀⠀⠀⢻⣷⠟⠁⡀⠀⠈⣿⠀⠀⢸⢀⡏⠀⠀⠀⠀
+⠸⣿⠄⠀⠈⠑⣢⠏⠀⠘⣆⢱⠀⠘⣿⡏⠃⠀⠲⠶⠶⠛⠀⠀⢤⣀⣠⣀⣠⠀⠀⠀⠉⠉⠉⠁⠀⠀⢹⠄⢀⣿⡾⠁⠀⠀⠀⠀
+⠀⠹⣶⡀⠀⢰⠃⠀⠀⠀⠘⢾⣧⠀⢻⣇⠀⠀⠀⠀⠀⠀⠀⠀⠘⡆⠀⢀⡏⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⢀⠾⠋⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠉⠁⣏⠀⠀⠀⠀⠀⠀⠘⠳⣌⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠹⣄⡽⠀⠀⠀⠀⠀⠀⠀⢀⣔⣏⣙⣁⣀⣠⣤⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠹⡄⠀⠀⠀⠀⠀⠀⢀⣈⣙⣷⣹⡷⠤⠄⠤⠤⠠⠤⠄⠒⠒⠒⠒⠒⠊⠉⡉⠉⠉⠁⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠙⢦⡀⠀⠀⠀⠀⢻⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡀⠀⠀⣤⠤⣄⠀⡴⠉⠙⡆⠀⠀⠀⠀⠀⠀⠀⠘⣇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⠓⠢⢄⣀⢸⠀⠀⠀⠀⠀⠀⠀⠀⡏⠁⠙⡆⠀⡇⠀⠘⡆⢙⢶⣞⠁⠀⠀⠀⠀⠀⠀⠀⢠⡇⠉⢢⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠆⠀⠀⠀⠀⠀⠀⠀⢧⠀⠀⣇⠀⣿⠀⠀⡇⢸⠀⠈⡆⠀⠀⠀⠀⠀⣠⠔⠋⠀⠀⠀⡿⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡇⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠉⠉⠁⠀⠀⡇⢸⠀⠀⡇⠀⠀⠀⠀⠈⣳⡄⠀⠀⠀⠀⠇⡧
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢇⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⡶⠒⢶⠀⠀⡇⢸⠀⠀⡇⠀⠀⠀⠀⠀⢹⠗⠀⠀⠀⢠⢃⠇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⡗⠀⢸⠀⠀⣧⠸⡄⠀⡗⠀⠀⠀⠀⠀⠨⣗⢂⣀⡔⢃⠜⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠸⣄⣀⡿⠀⠘⠧⠤⠞⠀⠑⠶⠋⠀⠀⠀⠀⠀⠀⠀⠈⠉⡏⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣀⡀⢤⠠⠤⠤⡤⠴⠒⠒⠒⠃⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡧⠤⠤⡖⠒⠒⠒⠒⠁⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⡄⠀⠀⠀⠀⠀⠀⠀
+            `;
+            const lines = [
+                { text: '> Booting system kernel...' }, { text: '> Initializing modules...' },
+                { text: '> Bypassing firewalls...', isAction: true },
+                { text: '> Access granted. Loading portfolio...', isAction: true, final: true }, { text: '> Welcome.' },
+            ];
+            const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+            async function typeWriter(element, text) {
+                element.classList.add('cursor');
+                for (let i = 0; i < text.length; i++) { element.textContent += text.charAt(i); await sleep(30); }
+                element.classList.remove('cursor');
+            }
+            async function runAction(element, text) {
+                element.classList.add('cursor');
+                element.textContent = text + ' ';
+                for (let i = 0; i < 3; i++) { await sleep(350); element.textContent += '.'; }
+                await sleep(200); element.textContent = text + ' [DONE]';
+                element.classList.remove('cursor');
+            }
+            async function startIntro() {
+                if (asciiArtEl) asciiArtEl.textContent = asciiArt;
+                if (asciiArtEl) asciiArtEl.classList.remove('hidden');
+                await sleep(1000);
+                for (const line of lines) {
+                    const p = document.createElement('p');
+                    if (introLinesContainer) introLinesContainer.appendChild(p);
+                    if (line.isAction) { await runAction(p, line.text); } else { await typeWriter(p, line.text); }
+                    if (!line.final) { await sleep(200); }
+                }
+                await sleep(1000);
+                introOverlay.style.opacity = '0';
+                introOverlay.addEventListener('transitionend', () => {
+                    introOverlay.style.display = 'none';
+                    mainContent.classList.remove('hidden');
+                    notificationLoop(); 
+                }, { once: true });
+            }
+            startIntro();
+        }
+
+        // --- LOGIKA HEADER STICKY & NAV TOGGLE ---
+        const siteHeader = document.querySelector('.site-header');
+        const navToggle = document.querySelector('.nav-toggle');
+        const mainNav = document.querySelector('.main-navigation');
+        if (siteHeader && navToggle && mainNav) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { siteHeader.classList.add('scrolled'); } 
+                else { siteHeader.classList.remove('scrolled'); }
+            });
+            navToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+
+        // --- LOGIKA SLIDER TESTIMONI ---
+        const testimonialsSwiper = new Swiper('.testimonials-slider', {
+            loop: true, grabCursor: true, spaceBetween: 20,
+            autoplay: { delay: 5000, disableOnInteraction: false, },
+            pagination: { el: '.swiper-pagination', clickable: true, },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev', },
+            breakpoints: { 768: { slidesPerView: 2, spaceBetween: 30 } }
+        });
+
+        // --- LOGIKA ANIMASI SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+            });
+        }, { threshold: 0.1 });
+        const elementsToReveal = document.querySelectorAll('.reveal');
+        elementsToReveal.forEach(el => observer.observe(el));
+        
+        // --- LOGIKA MODAL PRODUK (BARU) ---
+        const productDetailButtons = document.querySelectorAll('.product-detail-btn');
+        const modalOverlay = document.getElementById('product-modal-overlay');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalImageContainer = document.getElementById('modal-image-container');
+        const modalTitle = document.getElementById('modal-title');
+        const modalPrice = document.getElementById('modal-price');
+        const modalDescription = document.getElementById('modal-description');
+        const modalBuyBtn = document.getElementById('modal-buy-btn');
+        let modalSwiper = null;
+
+const openModal = (data) => {
+            modalTitle.textContent = data.title;
+            modalPrice.textContent = data.price;
+            modalDescription.innerHTML = data.description;
+            modalBuyBtn.href = data.waLink;
+            
+            modalImageContainer.innerHTML = '';
+            modalImageContainer.classList.remove('osint-image-square');
+
+            if (data.title === 'VIP OSINT V2.14') {
+                modalImageContainer.classList.add('osint-image-square');
+            }
+
+            if (data.images && data.images.length > 0) {
+                // HAPUS onclick dari sini, gambar akan ditangani oleh event listener terpisah
+                const sliderHTML = `
+                    <div class="swiper modal-slider">
+                        <div class="swiper-wrapper">
+                            ${data.images.map(img => `
+                                <div class="swiper-slide">
+                                    <img src="${img}" alt="${data.title}" title="Perbesar gambar">
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                `;
+                modalImageContainer.innerHTML = sliderHTML;
+                modalSwiper = new Swiper('.modal-slider', {
+                    loop: true,
+                    pagination: { el: '.swiper-pagination', clickable: true },
+                    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                });
+            } else if (data.image) {
+                modalImageContainer.innerHTML = `<img src="${data.image}" alt="${data.title}" title="Perbesar gambar">`;
+            }
+            modalOverlay.classList.add('active');
+        };
+
+        const closeModal = () => {
+            modalOverlay.classList.remove('active');
+            if (modalSwiper) {
+                modalSwiper.destroy(true, true);
+                modalSwiper = null;
+            }
+        };
+
+        productDetailButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const card = button.closest('.item-card');
+                const imagesAttr = card.dataset.images;
+                const productData = {
+                    title: card.dataset.title,
+                    price: card.dataset.price,
+                    image: card.dataset.image,
+                    images: imagesAttr ? JSON.parse(imagesAttr) : null,
+                    description: card.dataset.description,
+                    waLink: card.dataset.waLink
+                };
+                openModal(productData);
+            });
+        });
+
+        if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+        if(modalOverlay) modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+    });
+
+    // --- LOGIKA PEMUTAR MUSIK (BARU) ---
+        const audio = document.getElementById('audio-source');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const progressFill = document.getElementById('progress-fill');
+        const currentTimeEl = document.getElementById('current-time');
+        const totalTimeEl = document.getElementById('total-time');
+        const albumArt = document.getElementById('album-art');
+        const songTitle = document.getElementById('song-title');
+        const songArtist = document.getElementById('song-artist');
+        const playlistToggleBtn = document.getElementById('playlist-toggle-btn');
+        const playlistEl = document.getElementById('playlist');
+        const playlistUl = document.getElementById('playlist-ul');
+
+        const playlistData = [
+            {
+                title: 'Timeless',
+                artist: 'The Weeknd & Playboi Carti',
+                src: 'music/track1.mp3', // Diubah ke path lokal
+                artwork: 'https://i.scdn.co/image/ab67616d0000b273982320da137d0de34410df61'
+            },
+            {
+                title: 'Blinding Lights',
+                artist: 'The Weeknd',
+                src: 'music/track2.mp3', // Diubah ke path lokal
+                artwork: 'https://upload.wikimedia.org/wikipedia/en/e/e6/The_Weeknd_-_Blinding_Lights.png'
+            },
+            {
+                title: 'Hotel California',
+                artist: 'Eagles',
+                src: 'music/track3.mp3', // Diubah ke path lokal
+                artwork: 'https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg'
+            }
+        ];
+
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+
+        function loadTrack(index) {
+            const track = playlistData[index];
+            songTitle.textContent = track.title;
+            songArtist.textContent = track.artist;
+            albumArt.src = track.artwork;
+            audio.src = track.src;
+
+            // Perbarui tampilan playlist
+            const listItems = playlistUl.querySelectorAll('li');
+            listItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+        
+        function generatePlaylist() {
+            playlistUl.innerHTML = '';
+            playlistData.forEach((track, index) => {
+                const li = document.createElement('li');
+                li.dataset.index = index;
+                li.innerHTML = `
+                    <img src="${track.artwork}" alt="${track.title}">
+                    <div>
+                        <p class="playlist-title">${track.title}</p>
+                        <p class="playlist-artist">${track.artist}</p>
+                    </div>
+                `;
+                li.addEventListener('click', () => {
+                    currentTrackIndex = index;
+                    loadTrack(currentTrackIndex);
+                    playAudio();
+                });
+                playlistUl.appendChild(li);
+            });
+        }
+
+        function playAudio() {
+            isPlaying = true;
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            playPauseBtn.setAttribute('aria-label', 'Jeda');
+            audio.play();
+        }
+
+        function pauseAudio() {
+            isPlaying = false;
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            playPauseBtn.setAttribute('aria-label', 'Putar');
+            audio.pause();
+        }
+
+        function prevTrack() {
+            currentTrackIndex = (currentTrackIndex - 1 + playlistData.length) % playlistData.length;
+            loadTrack(currentTrackIndex);
+            playAudio();
+        }
+
+        function nextTrack() {
+            currentTrackIndex = (currentTrackIndex + 1) % playlistData.length;
+            loadTrack(currentTrackIndex);
+            playAudio();
+        }
+        
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                pauseAudio();
+            } else {
+                playAudio();
+            }
+        });
+
+        prevBtn.addEventListener('click', prevTrack);
+        nextBtn.addEventListener('click', nextTrack);
+
+        audio.addEventListener('timeupdate', () => {
+            const { duration, currentTime } = audio;
+            const progressPercent = (currentTime / duration) * 100;
+            progressFill.style.width = `${progressPercent}%`;
+            currentTimeEl.textContent = formatTime(currentTime);
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            totalTimeEl.textContent = formatTime(audio.duration);
+        });
+        
+        audio.addEventListener('ended', nextTrack);
+
+        progressBar.addEventListener('click', (e) => {
+            const width = progressBar.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        });
+        
+        playlistToggleBtn.addEventListener('click', () => {
+            playlistEl.classList.toggle('active');
+        });
+
+        // Inisialisasi
+        generatePlaylist();
+        loadTrack(currentTrackIndex);
+    </script>
+
+</body>
+</html>
