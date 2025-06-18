@@ -568,3 +568,35 @@ h2.section-title { font-size: 1.7rem; font-weight: 600; text-align: center; marg
     font-size: 1.8rem;
     color: #1DB954; /* Warna hijau Spotify */
 }
+/* ==========================================================================
+   14. RESPONSIVE FIX UNTUK NOW PLAYING
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Aturan ini hanya berlaku untuk layar dengan lebar 768px atau kurang */
+
+    .now-playing-container .player-ui {
+        /* Mengurangi jarak antara gambar dan teks */
+        gap: 0.75rem; 
+    }
+
+    #now-playing-album-art {
+        /* Mengecilkan ukuran gambar thumbnail */
+        width: 50px;
+        height: 50px;
+    }
+
+    .now-playing-container #now-playing-title {
+        /* Mengecilkan ukuran font judul */
+        font-size: 0.9rem;
+    }
+
+    .now-playing-container #now-playing-artist {
+        /* Mengecilkan ukuran font artis */
+        font-size: 0.8rem;
+    }
+
+    .now-playing-container .spotify-logo {
+        /* Mengecilkan ikon Spotify */
+        font-size: 1.5rem;
+    }
+}
