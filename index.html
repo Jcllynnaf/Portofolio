@@ -61,47 +61,18 @@
             </div>
         </header>
 
-        <section class="music-player-container glass-effect reveal">
-    <audio id="audio-source"></audio>
-
-    <div class="player-ui">
+        <section id="now-playing-section" class="now-playing-container glass-effect reveal">
+    <a id="track-link" href="#" target="_blank" class="player-ui">
         <div class="album-art-container">
-            <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Bohemian_Rhapsody.png" alt="Album Art" id="album-art">
+            <img src="https://i.scdn.co/image/ab67616d0000b273797f2e17a3a6f7a635a16c7d" alt="Album Art" id="now-playing-album-art">
         </div>
         <div class="player-body">
-            <div class="song-info">
-                <div>
-                    <h3 id="song-title">Bohemian Rhapsody</h3>
-                    <p id="song-artist">Queen</p>
-                </div>
-                <div class="player-icons">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <button id="playlist-toggle-btn" aria-label="Buka daftar putar">
-                        <i class="fa-solid fa-list-ul"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar">
-                    <div class="progress-fill" id="progress-fill"></div>
-                </div>
-                <div class="time-stamps">
-                    <span id="current-time">0:00</span>
-                    <span id="total-time">0:00</span>
-                </div>
-            </div>
-            <div class="player-controls">
-                <button id="prev-btn" aria-label="Lagu sebelumnya"><i class="fas fa-backward-step"></i></button>
-                <button id="play-pause-btn" aria-label="Putar"><i class="fas fa-play"></i></button>
-                <button id="next-btn" aria-label="Lagu selanjutnya"><i class="fas fa-forward-step"></i></button>
-            </div>
+            <p id="now-playing-title">Not Playing</p>
+            <p id="now-playing-artist">Spotify</p>
         </div>
-    </div>
-
-    <div class="playlist" id="playlist">
-        <h4>Daftar Putar</h4>
-        <ul id="playlist-ul">
-            </ul>
+    </a>
+    <div id="spotify-logo" class="spotify-logo">
+        <i class="fab fa-spotify"></i>
     </div>
 </section>
 
@@ -511,155 +482,33 @@ const openModal = (data) => {
         });
     });
 
-    // --- LOGIKA PEMUTAR MUSIK (BARU) ---
-        const audio = document.getElementById('audio-source');
-        const playPauseBtn = document.getElementById('play-pause-btn');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const progressBar = document.getElementById('progress-bar');
-        const progressFill = document.getElementById('progress-fill');
-        const currentTimeEl = document.getElementById('current-time');
-        const totalTimeEl = document.getElementById('total-time');
-        const albumArt = document.getElementById('album-art');
-        const songTitle = document.getElementById('song-title');
-        const songArtist = document.getElementById('song-artist');
-        const playlistToggleBtn = document.getElementById('playlist-toggle-btn');
-        const playlistEl = document.getElementById('playlist');
-        const playlistUl = document.getElementById('playlist-ul');
+    // --- LOGIKA NOW PLAYING SPOTIFY (BARU) ---
+        const nowPlayingContainer = document.getElementById('now-playing-section');
+        const trackLink = document.getElementById('track-link');
+        const albumArt = document.getElementById('now-playing-album-art');
+        const titleEl = document.getElementById('now-playing-title');
+        const artistEl = document.getElementById('now-playing-artist');
 
-        const playlistData = [
-            {
-                title: 'Timeless',
-                artist: 'The Weeknd & Playboi Carti',
-                src: 'music/track1.mp3', // Diubah ke path lokal
-                artwork: 'https://i.scdn.co/image/ab67616d0000b273982320da137d0de34410df61'
-            },
-            {
-                title: 'Blinding Lights',
-                artist: 'The Weeknd',
-                src: 'music/track2.mp3', // Diubah ke path lokal
-                artwork: 'https://upload.wikimedia.org/wikipedia/en/e/e6/The_Weeknd_-_Blinding_Lights.png'
-            },
-            {
-                title: 'Hotel California',
-                artist: 'Eagles',
-                src: 'music/track3.mp3', // Diubah ke path lokal
-                artwork: 'https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg'
-            }
-        ];
+        async function getNowPlaying() {
+            // URL ini akan otomatis menargetkan API di Vercel setelah di-deploy
+            const response = await fetch('/api/now-playing');
+            const data = await response.json();
 
-        let currentTrackIndex = 0;
-        let isPlaying = false;
-
-        function loadTrack(index) {
-            const track = playlistData[index];
-            songTitle.textContent = track.title;
-            songArtist.textContent = track.artist;
-            albumArt.src = track.artwork;
-            audio.src = track.src;
-
-            // Perbarui tampilan playlist
-            const listItems = playlistUl.querySelectorAll('li');
-            listItems.forEach((item, i) => {
-                if (i === index) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-        
-        function generatePlaylist() {
-            playlistUl.innerHTML = '';
-            playlistData.forEach((track, index) => {
-                const li = document.createElement('li');
-                li.dataset.index = index;
-                li.innerHTML = `
-                    <img src="${track.artwork}" alt="${track.title}">
-                    <div>
-                        <p class="playlist-title">${track.title}</p>
-                        <p class="playlist-artist">${track.artist}</p>
-                    </div>
-                `;
-                li.addEventListener('click', () => {
-                    currentTrackIndex = index;
-                    loadTrack(currentTrackIndex);
-                    playAudio();
-                });
-                playlistUl.appendChild(li);
-            });
-        }
-
-        function playAudio() {
-            isPlaying = true;
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            playPauseBtn.setAttribute('aria-label', 'Jeda');
-            audio.play();
-        }
-
-        function pauseAudio() {
-            isPlaying = false;
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-            playPauseBtn.setAttribute('aria-label', 'Putar');
-            audio.pause();
-        }
-
-        function prevTrack() {
-            currentTrackIndex = (currentTrackIndex - 1 + playlistData.length) % playlistData.length;
-            loadTrack(currentTrackIndex);
-            playAudio();
-        }
-
-        function nextTrack() {
-            currentTrackIndex = (currentTrackIndex + 1) % playlistData.length;
-            loadTrack(currentTrackIndex);
-            playAudio();
-        }
-        
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-
-        playPauseBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                pauseAudio();
+            if (data.isPlaying) {
+                trackLink.href = data.songUrl;
+                albumArt.src = data.albumImageUrl;
+                titleEl.textContent = data.title;
+                artistEl.textContent = data.artist;
             } else {
-                playAudio();
+                trackLink.href = 'https://open.spotify.com';
+                titleEl.textContent = 'Not Playing';
+                artistEl.textContent = 'Spotify';
             }
-        });
+        }
 
-        prevBtn.addEventListener('click', prevTrack);
-        nextBtn.addEventListener('click', nextTrack);
-
-        audio.addEventListener('timeupdate', () => {
-            const { duration, currentTime } = audio;
-            const progressPercent = (currentTime / duration) * 100;
-            progressFill.style.width = `${progressPercent}%`;
-            currentTimeEl.textContent = formatTime(currentTime);
-        });
-
-        audio.addEventListener('loadedmetadata', () => {
-            totalTimeEl.textContent = formatTime(audio.duration);
-        });
-        
-        audio.addEventListener('ended', nextTrack);
-
-        progressBar.addEventListener('click', (e) => {
-            const width = progressBar.clientWidth;
-            const clickX = e.offsetX;
-            const duration = audio.duration;
-            audio.currentTime = (clickX / width) * duration;
-        });
-        
-        playlistToggleBtn.addEventListener('click', () => {
-            playlistEl.classList.toggle('active');
-        });
-
-        // Inisialisasi
-        generatePlaylist();
-        loadTrack(currentTrackIndex);
+        // Panggil fungsi sekali saat halaman dimuat, lalu setiap 5 detik
+        getNowPlaying();
+        setInterval(getNowPlaying, 5000);
     </script>
 
 </body>
