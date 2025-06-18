@@ -536,154 +536,35 @@ h2.section-title { font-size: 1.7rem; font-weight: 600; text-align: center; marg
     }
 }
 /* ==========================================================================
-   11. PEMUTAR MUSIK (BARU)
+   13. NOW PLAYING SPOTIFY
    ========================================================================== */
-.music-player-container {
+.now-playing-container {
     padding: 1rem;
-    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.player-ui {
+.now-playing-container .player-ui {
     display: flex;
     align-items: center;
     gap: 1rem;
+    text-decoration: none;
+    flex-grow: 1;
 }
-.album-art-container {
-    flex-shrink: 0;
+.now-playing-container .player-body {
+    line-height: 1.4;
 }
-#album-art {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-.player-body {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-.song-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-.song-info h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 0.25rem 0;
+.now-playing-container #now-playing-title {
     color: var(--text-color);
+    font-weight: 600;
+    margin: 0;
 }
-.song-info p {
+.now-playing-container #now-playing-artist {
+    color: var(--text-muted);
     font-size: 0.9rem;
     margin: 0;
-    color: var(--text-muted);
 }
-.player-icons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: var(--text-muted);
-}
-.player-icons > i {
-    font-size: 1.2rem;
-}
-#playlist-toggle-btn {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0;
-}
-.progress-container {
-    width: 100%;
-}
-.progress-bar {
-    width: 100%;
-    height: 6px;
-    background-color: rgba(255,255,255,0.2);
-    border-radius: 3px;
-    cursor: pointer;
-    overflow: hidden;
-}
-.progress-fill {
-    width: 0%;
-    height: 100%;
-    background-color: var(--text-color);
-    border-radius: 3px;
-    transition: width 0.1s linear;
-}
-.time-stamps {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
-}
-.player-controls {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 0.5rem;
-}
-.player-controls button {
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-.player-controls #play-pause-btn {
+.now-playing-container .spotify-logo {
     font-size: 1.8rem;
-}
-.playlist {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out, margin-top 0.5s ease-out, padding 0.5s ease-out;
-}
-.playlist.active {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--glass-border);
-}
-.playlist h4 {
-    margin: 0 0 0.5rem 0.5rem;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-.playlist ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.playlist li {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-.playlist li:hover {
-    background-color: rgba(255,255,255,0.1);
-}
-.playlist li.active {
-    background-color: rgba(56, 189, 248, 0.2);
-}
-.playlist li img {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    object-fit: cover;
-}
-.playlist .playlist-title {
-    font-weight: 500;
-    color: var(--text-color);
-}
-.playlist .playlist-artist {
-    font-size: 0.8rem;
-    color: var(--text-muted);
+    color: #1DB954; /* Warna hijau Spotify */
 }
