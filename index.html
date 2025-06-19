@@ -60,22 +60,7 @@
                 <a href="https://github.com/jcllynnaf/" target="_blank" aria-label="GitHub" data-tooltip="GitHub" class="social-link"><i class="fab fa-github"></i></a>
             </div>
         </header>
-
-        <section id="now-playing-section" class="now-playing-container glass-effect reveal">
-    <a id="track-link" href="#" target="_blank" class="player-ui">
-        <div class="album-art-container">
-            <img src="https://i.scdn.co/image/ab67616d0000b273797f2e17a3a6f7a635a16c7d" alt="Album Art" id="now-playing-album-art">
-        </div>
-        <div class="player-body">
-            <p id="now-playing-title">Not Playing</p>
-            <p id="now-playing-artist">Spotify</p>
-        </div>
-    </a>
-    <div id="spotify-logo" class="spotify-logo">
-        <i class="fab fa-spotify"></i>
-    </div>
-</section>
-
+        
         <section id="experience" class="content-section reveal">
             <h2 class="section-title">Pengalaman Kerja</h2>
             <div class="timeline">
@@ -290,63 +275,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-    // --- LOGIKA FINAL NOW PLAYING SPOTIFY (SUDAH DIPERBAIKI) ---
-    
-// Menunggu semua konten HTML dimuat sebelum menjalankan skrip
-document.addEventListener('DOMContentLoaded', () => {
-
-    const nowPlayingContainer = document.getElementById('now-playing-section');
-    const trackLink = document.getElementById('track-link');
-    const albumArt = document.getElementById('now-playing-album-art');
-    const titleEl = document.getElementById('now-playing-title');
-    const artistEl = document.getElementById('now-playing-artist');
-
-    // Pastikan semua elemen HTML yang dibutuhkan ada
-    if (nowPlayingContainer && trackLink && albumArt && titleEl && artistEl) {
-        
-        const getNowPlaying = async () => {
-            try {
-                // Panggil endpoint API yang sudah kita deploy di Vercel
-                const response = await fetch('/api/now-playing');
-
-                // Jika respons dari server tidak "OK" (misal: error 500), cetak error di console
-                if (!response.ok) {
-                    console.error('API Error:', response.status, response.statusText);
-                    return;
-                }
-
-                const data = await response.json();
-
-                // Jika ada lagu yang sedang diputar, tampilkan datanya
-                if (data.isPlaying) {
-                    trackLink.href = data.songUrl;
-                    albumArt.src = data.albumImageUrl;
-                    titleEl.textContent = data.title;
-                    artistEl.textContent = data.artist;
-                } else {
-                    // Jika tidak ada lagu, kembalikan ke tampilan default
-                    trackLink.href = 'https://open.spotify.com';
-                    albumArt.src = 'https://i.scdn.co/image/ab67616d0000b273797f2e17a3a6f7a635a16c7d'; // <-- Baris ini yang hilang
-                    titleEl.textContent = 'Not Playing';
-                    artistEl.textContent = 'Spotify';
-                }
-            } catch (error) {
-                // Tangkap error jika `fetch` gagal total (misal: masalah jaringan)
-                console.error('Failed to fetch from /api/now-playing:', error);
-            }
-        };
-
-        // Panggil fungsi sekali saat halaman dimuat, lalu panggil lagi setiap 5 detik
-        getNowPlaying();
-        setInterval(getNowPlaying, 5000);
-
-    } else {
-        // Pesan ini akan muncul di console jika ada salah ketik pada ID elemen HTML
-        console.error('Satu atau lebih elemen HTML untuk "Now Playing" tidak ditemukan!');
-    }
-});
-
-
         // --- LOGIKA INTRO ANIMASI ---
         const introOverlay = document.getElementById('intro-overlay');
         const mainContent = document.querySelector('main');
