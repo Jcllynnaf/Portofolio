@@ -61,21 +61,6 @@
             </div>
         </header>
 
-        <section id="now-playing-section" class="now-playing-container glass-effect reveal">
-    <a id="track-link" href="#" target="_blank" class="player-ui">
-        <div class="album-art-container">
-            <img src="https://i.scdn.co/image/ab67616d0000b273797f2e17a3a6f7a635a16c7d" alt="Album Art" id="now-playing-album-art">
-        </div>
-        <div class="player-body">
-            <p id="now-playing-title">Not Playing</p>
-            <p id="now-playing-artist">Spotify</p>
-        </div>
-    </a>
-    <div id="spotify-logo" class="spotify-logo">
-        <i class="fab fa-spotify"></i>
-    </div>
-</section>
-
         <section id="experience" class="content-section reveal">
             <h2 class="section-title">Pengalaman Kerja</h2>
             <div class="timeline">
@@ -266,8 +251,6 @@
             <a href="mailto:andikafbrynsyh28@gmail.com" class="contact-button">Kirim Email</a>
         </footer>
     </main>
-
-    <div id="sales-notification" class="hidden"></div>
     
     <div id="product-modal-overlay" class="modal-overlay">
         <div id="product-modal-container" class="modal-container glass-effect">
@@ -481,34 +464,6 @@ const openModal = (data) => {
             }
         });
     });
-
-    // --- LOGIKA NOW PLAYING SPOTIFY (BARU) ---
-        const nowPlayingContainer = document.getElementById('now-playing-section');
-        const trackLink = document.getElementById('track-link');
-        const albumArt = document.getElementById('now-playing-album-art');
-        const titleEl = document.getElementById('now-playing-title');
-        const artistEl = document.getElementById('now-playing-artist');
-
-        async function getNowPlaying() {
-            // URL ini akan otomatis menargetkan API di Vercel setelah di-deploy
-            const response = await fetch('/api/now-playing');
-            const data = await response.json();
-
-            if (data.isPlaying) {
-                trackLink.href = data.songUrl;
-                albumArt.src = data.albumImageUrl;
-                titleEl.textContent = data.title;
-                artistEl.textContent = data.artist;
-            } else {
-                trackLink.href = 'https://open.spotify.com';
-                titleEl.textContent = 'Not Playing';
-                artistEl.textContent = 'Spotify';
-            }
-        }
-
-        // Panggil fungsi sekali saat halaman dimuat, lalu setiap 5 detik
-        getNowPlaying();
-        setInterval(getNowPlaying, 5000);
     </script>
 
 </body>
