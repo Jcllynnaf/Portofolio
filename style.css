@@ -233,6 +233,11 @@ h2.section-title { font-size: 1.7rem; font-weight: 600; text-align: center; marg
     flex-grow: 1;
 }
 
+/* Style untuk tombol layanan lainnya */
+.more-services-prompt {
+    text-align: center;
+    margin-top: 2rem; /* Jarak dari grid layanan di atasnya */
+}
 /* --- Riwayat Kerja (Timeline) --- */
 .timeline {
     position: relative;
