@@ -44,40 +44,6 @@ body::before {
 main.hidden { visibility: hidden; }
 
 /* ==========================================================================
-   2. STYLING INTRO HACKER
-   ========================================================================== */
-#intro-overlay {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: #0D0D0D;
-    z-index: 9999;
-    display: flex; justify-content: center; align-items: center;
-    transition: opacity 1.5s ease-out;
-}
-#intro-terminal {
-    width: 95%; max-width: 800px;
-    font-family: 'VT323', monospace;
-    color: #0077ff;
-    font-size: 1.1rem;
-    text-shadow: 0 0 5px #0077ff;
-}
-#intro-terminal .hidden { display: none; }
-#intro-terminal p { margin: 0; white-space: pre; overflow: hidden; }
-#intro-terminal .cursor::after {
-    content: '█'; display: inline-block; vertical-align: baseline;
-    animation: blink 1s step-end infinite;
-}
-@keyframes blink { 50% { opacity: 0; } }
-#ascii-art {
-    font-size: clamp(0.4rem, 1.2vw, 0.8rem);
-    margin-bottom: 1rem;
-    white-space: pre;
-    color: #0077ff;
-    text-align: center;
-    line-height: 1.1;
-}
-
-/* ==========================================================================
    3. HEADER & NAVIGASI STICKY
    ========================================================================== */
 .site-header {
@@ -592,3 +558,185 @@ h2.section-title { font-size: 1.7rem; font-weight: 600; text-align: center; marg
     font-size: 0.8rem;
     font-style: italic;
 }
+
+/* Tombol Terminal di Header */
+.terminal-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1100;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-left: 1rem; /* Jarak dari nav-toggle */
+    transition: color 0.3s ease;
+}
+
+.terminal-toggle:hover {
+    color: var(--accent-color);
+}
+
+@media (min-width: 769px) {
+    .terminal-toggle {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   2. STYLING TERMINAL OVERLAY
+   ========================================================================== */
+.terminal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Warna gelap transparan untuk overlay */
+    z-index: 2500; /* Pastikan di atas semua konten lain */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.terminal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.terminal-window {
+    width: 95%;
+    max-width: 900px; /* Lebar maksimum terminal */
+    height: 70%; /* Tinggi terminal */
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'VT323', monospace; /* Font terminal */
+    color: #38bdf8; /* Warna teks terminal hijau */
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px #38bdf8; /* Efek neon hijau */
+    padding: 0; /* Padding diatur di dalam output */
+    border-radius: 10px; /* Sudut membulat */
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+.terminal-overlay.active .terminal-window {
+    transform: scale(1);
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Background header terminal */
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 0.9rem;
+    color: #38bdf8
+}
+
+.terminal-header .close-terminal-btn {
+    background: transparent;
+    border: none;
+    color: #38bdf8;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.terminal-header .close-terminal-btn:hover {
+    color: var(--text-color);
+}
+
+.terminal-output {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto; /* Memungkinkan scroll di dalam output terminal */
+    white-space: pre-wrap; /* Memastikan teks tidak memanjang ke samping */
+    word-break: break-all; /* Mencegah teks terlalu panjang */
+    color: #38bdf8; /* Warna teks terminal */
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-output p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.terminal-output #ascii-art {
+    font-size: clamp(0.3rem, 1vw, 0.7rem); /* Ukuran ASCII art lebih kecil */
+    margin-bottom: 1rem;
+    text-align: center;
+    line-height: 1;
+    color: #38bdf8; /* Warna ASCII art sedikit berbeda */
+    opacity: 0.8;
+}
+
+/* Kursor mengetik */
+.terminal-output p.cursor::after, /* Hanya p dengan kelas cursor */
+.terminal-input-line .input-cursor {
+    content: '█';
+    display: inline-block;
+    vertical-align: baseline;
+    animation: blink 1s step-end infinite;
+}
+
+.terminal-input-line {
+    display: flex; /* Gunakan flexbox untuk menata prompt dan kursor */
+    align-items: center;
+    margin-top: auto; /* Dorong ke bawah, menempel di bagian bawah scroll */
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1); /* Garis pemisah */
+    white-space: pre; /* Mempertahankan spasi */
+    display: none; /* Sembunyikan secara default sampai animasi selesai */
+    color: #38bdf8; /* Warna teks prompt */
+}
+
+.terminal-input-line .prompt {
+    color: #38bdf8; /* Warna prompt */
+    margin-right: 5px; /* Jarak antara prompt dan kursor */
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #38bdf8; /* Warna teks input */
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem; /* Sesuaikan dengan font-size .terminal-output */
+    flex-grow: 1; /* Agar input mengambil sisa ruang */
+    outline: none; /* Hapus outline saat fokus */
+    padding: 0; /* Hapus padding default browser */
+    margin: 0; /* Hapus margin default browser */
+    caret-color: transparent; /* Sembunyikan kursor input default */
+}
+
+.terminal-input-line .input-cursor {
+    margin-left: 2px; /* Sedikit jarak dari input */
+}
+
+/* Penyesuaian Responsif untuk Terminal */
+@media (max-width: 768px) {
+    .terminal-window {
+        width: 98%;
+        height: 85%;
+        max-height: 90vh;
+    }
+    .terminal-header {
+        font-size: 0.8rem;
+    }
+    .terminal-output {
+        font-size: 0.9rem;
+    }
+    .terminal-output #ascii-art {
+        font-size: clamp(0.2rem, 0.8vw, 0.5rem);
+    }
+}
+
