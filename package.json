@@ -1,0 +1,11 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "next build && javascript-obfuscator ./out -o ./obfuscated",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^x.x.x"
+  }
+}
